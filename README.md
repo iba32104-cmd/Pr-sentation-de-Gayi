@@ -1,1 +1,663 @@
-représentation de Gayi
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gayi, Niger - Richesse Géographique et Historique</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f2e9;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header et Navigation */
+        header {
+            background: linear-gradient(135deg, #1e6b52 0%, #2c9c7a 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+    <img src="../00000/Image/GAYI.png" alt="GAYI">
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+      
+        .logo i {
+            font-size: 2.5rem;
+            animation: pulse 2s infinite;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            transform: translateY(-3px);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #ffd166;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 20%, rgba(0,0,0,0.7) 100%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #ffd166;
+            color: #333;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .map-btn:hover {
+            background-color: #ffc145;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Sections */
+        .section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            color: #1e6b52;
+            border-bottom: 2px solid #ffd166;
+            padding-bottom: 10px;
+        }
+        
+        .section-title i {
+            font-size: 1.8rem;
+        }
+        
+        .section-title h3 {
+            font-size: 1.8rem;
+        }
+        
+        /* Tableaux */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        th {
+            background-color: #1e6b52;
+            color: white;
+            text-align: left;
+            padding: 15px;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        tr:hover {
+            background-color: #f0f7f4;
+        }
+        
+        /* Images */
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .image-card {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .image-card:hover {
+            transform: scale(1.03);
+        }
+        
+        .image-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .image-caption {
+            padding: 15px;
+            background-color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ddd;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            color: #ffd166;
+        }
+        
+        .coordinates {
+            background-color: #2a2a2a;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        
+        .coordinates p {
+            font-family: monospace;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            width: 100%;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .image-container {
+                flex-direction: column;
+            }
+            
+            .image-card {
+                min-width: 100%;
+            }
+        }
+        
+        /* Effet de flèche pour le défilement */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+            z-index: 2;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-5px) translateX(-50%);
+            }
+        }
+        
+        /* Badge pour les chiffres importants */
+        .highlight {
+            background-color: #ffd166;
+            color: #333;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        /* Citations */
+        .quote {
+            font-style: italic;
+            border-left: 4px solid #1e6b52;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="00000/Image/GAYI.png" alt="GAYI.png">
+                <i class="fas fa-globe-africa"></i>
+                <h1>Gayi, Niger</h1>
+            </div>
+            <nav class="nav-links">
+                <a href="#presentation"><i class="fas fa-info-circle"></i> Présentation</a>
+                <a href="#histoire"><i class="fas fa-landmark"></i> Histoire</a>
+                <a href="#geographie"><i class="fas fa-mountain"></i> Géographie</a>
+                <a href="#carte"><i class="fas fa-map-marked-alt"></i> Carte</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h2>Découvrez la richesse géographique et historique de Gayi</h2>
+            <p>Une ville située dans la région de Zinder, au sud du Niger, avec un patrimoine culturel et économique unique.</p>
+            <a href="https://www.google.com/maps?q=Lat Long: 13.48527642 9.35546055
+DMS: 13° 29' 7.0'' N | 9° 21' 19.66'' E
+UTM: 32 N 538470.58E 1490829.455N
+MGRS: 32PNV 38471 90829
+EPSG:4326: 9.35546055 13.48527642
+Plus Codes: 7F5FF9P4+45
+URL: https://www.google.com/maps/place/13.485276419268235,9.355460554361343 target="_blank" class="map-btn">
+                <i class="fas fa-map-marker-alt"></i> Voir l'emplacement exact sur Google Maps
+            </a>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Présentation Section -->
+        <section id="presentation" class="section">
+            <div class="section-title">
+                <i class="fas fa-info-circle"></i>
+                <h3>Présentation de Gayi</h3>
+            </div>
+            <p>Gayi est une ville située dans la région de Zinder, au sud du Niger. Elle se trouve à proximité des villages de Bawachi et du hameau de Garin Bako. Cette localité fait partie intégrante du paysage culturel et géographique de la région.</p>
+            
+            <div class="quote">
+                Gayi représente plus de <span class="highlight">70% de la population de sa commune</span>, mais elle souffre d'un manque d'infrastructures : pas d'électricité, pas de routes, et toujours sans levé topographique.
+            </div>
+            
+            <p>Malgré ces défis, Gayi reste un centre économique important grâce à son marché à bétail, le septième de ce type dans la région de Zinder.</p>
+        </section>
+
+        <!-- Histoire Section -->
+        <section id="histoire" class="section">
+            <div class="section-title">
+                <i class="fas fa-landmark"></i>
+                <h3>Histoire et Importance Régionale</h3>
+            </div>
+            <p>Gayi a un marché à bétail reconnu, qui joue un rôle essentiel dans l'économie locale et régionale. La ville a été visitée par plusieurs présidents du Niger, dont :</p>
+            
+            <ul style="margin: 20px 0 20px 30px;">
+                <li>Baba Tandja</li>
+                <li>Maman Ousmane</li>
+                <li>Mohamed Bazoum</li>
+            </ul>
+            
+            <p>Ces visites présidentielles soulignent l'importance historique de Gayi, qui fut autrefois un royaume, aujourd'hui déplacé à Wacha.</p>
+            
+            <div class="image-container">
+                <div class="image-card">
+                    <img src="https://i.ibb.co/1nXrGJK/IMG-20220123-WA0020.jpg" alt="Marché de bétail de Gayi">
+                    <div class="image-caption">
+                        <h4>Marché de bétail de Gayi</h4>
+                        <p>Le septième marché à bétail de la région de Zinder, un pilier de l'économie locale.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Géographie Section -->
+        <section id="geographie" class="section">
+            <div class="section-title">
+                <i class="fas fa-mountain"></i>
+                <h3>Géographie et Hydrogéologie</h3>
+            </div>
+            <p>La région de Gayi présente des caractéristiques géologiques et hydrogéologiques particulières qui influencent son développement et ses activités.</p>
+            
+            <h4 style="margin: 25px 0 15px; color: #1e6b52;">Les Aquifères de la Région</h4>
+            <p>La zone de Gayi possède plusieurs systèmes aquifères :</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type d'aquifère</th>
+                        <th>Profondeur du niveau statique</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nappe alluviale des sables alluvionnaires récents</td>
+                        <td>0 à 10 m</td>
+                    </tr>
+                    <tr>
+                        <td>Aquifères du socle, des grès argileux et des grès de Mallawa</td>
+                        <td>15 à plus de 30 m</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h4 style="margin: 25px 0 15px; color: #1e6b52;">Dynamique de Ravinement (2005-2014)</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Élément</th>
+                        <th>2005</th>
+                        <th>2014</th>
+                        <th>Évolution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mare de Gouské (ha)</td>
+                        <td>302</td>
+                        <td>286</td>
+                        <td>-5,2%</td>
+                    </tr>
+                    <tr>
+                        <td>Cuvette (ha)</td>
+                        <td>163</td>
+                        <td>179</td>
+                        <td>+9,4%</td>
+                    </tr>
+                    <tr>
+                        <td>Ravines (km)</td>
+                        <td>88</td>
+                        <td>110</td>
+                        <td><span class="highlight">+25,8%</span></td>
+                    </tr>
+                    <tr>
+                        <td>Densité de drainage (km/km²)</td>
+                        <td>0,7</td>
+                        <td>0,9</td>
+                        <td>+0,2</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h4 style="margin: 25px 0 15px; color: #1e6b52;">Conséquences</h4>
+            <p>L'augmentation des ruissellements dans le bassin de la cuvette de Gayi a entraîné plusieurs phénomènes :</p>
+            <ul style="margin: 15px 0 20px 30px;">
+                <li>Ravinement accru des sols</li>
+                <li>Inondations plus fréquentes</li>
+                <li>Ensablement des zones basses</li>
+                <li>Transport de sables dunaires par les cours d'eau</li>
+            </ul>
+        </section>
+
+        <!-- Carte Section -->
+        <section id="carte" class="section">
+            <div class="section-title">
+                <i class="fas fa-map-marked-alt"></i>
+                <h3>Carte Géologique et Localisation</h3>
+            </div>
+            
+            <div class="image-container">
+                <div class="image-card">
+                    <img src="https://i.ibb.co/vxJ5Kwp/Carte-GAyi.jpg" alt="Carte géologique de la région de Gayi">
+                    <div class="image-caption">
+                        <h4>Carte géologique de la région de Gayi</h4>
+                        <p>Représentation des différentes formations géologiques de la zone.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                <h4 style="color: #1e6b52; margin-bottom: 15px;">Coordonnées de Gayi</h4>
+                <div class="coordinates">
+                    <p><i class="fas fa-compass"></i> 13.4853833° N, 9.3563074° E</p>
+                </div>
+                <p>Utilisez le bouton ci-dessous pour visualiser l'emplacement exact sur Google Maps</p>
+                <a href="https://www.google.com/maps?q=13.4853833,9.3563074" target="_blank" class="map-btn" style="margin-top: 15px;">
+                    <i class="fas fa-external-link-alt"></i> Ouvrir dans Google Maps
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-globe-africa"></i>
+                <h3>Gayi, Niger</h3>
+            </div>
+            
+            <p>Site de présentation de Gayi, réalisé par: <strong>Ali Ibrahim Adamou</strong></p>
+            
+            <div class="coordinates">
+                <p><i class="fas fa-map-pin"></i> Région de Zinder, Niger</p>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 - Découvrez la richesse géographique et historique de Gayi, Niger</p>
+                <p>Toutes les informations présentées sont basées sur des données géographiques et historiques réelles.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animation au défilement pour les sections
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Animation pour les liens de navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Animation pour les lignes du tableau
+            const tableRows = document.querySelectorAll('tbody tr');
+            tableRows.forEach((row, index) => {
+                row.style.opacity = '0';
+                row.style.transform = 'translateX(-20px)';
+                row.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+                
+                setTimeout(() => {
+                    row.style.opacity = '1';
+                    row.style.transform = 'translateX(0)';
+                }, 300 + (index * 100));
+            });
+        });
+    </script>
+</body>
+</html>
